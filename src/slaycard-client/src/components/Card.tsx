@@ -31,16 +31,26 @@ export default function Card(props: CardProps) {
     setSelected(false, undefined);
     window.removeEventListener("mousemove", onMouseMove);
     window.removeEventListener("keydown", onKeyDown);
+    window.removeEventListener("touchmove", onTouchMove);
   };
 
   useEffect(() => {
     if (!isSelectedLocal) return;
     window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("touchmove", onTouchMove);
     window.addEventListener("keydown", onKeyDown);
     return unselect;
   }, [isSelectedLocal]);
 
   const onMouseMove = (ev: MouseEvent) => {
+    drawLine(ev.clientX, ev.clientY)
+  };
+
+  const onTouchMove = (ev: TouchEvent) => {
+    drawLine(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY)
+  };
+
+  const drawLine = (x1: number, y1: number) => {
     if (!ref.current || !canvasRef.current) return;
 
     const rect = ref.current.getBoundingClientRect();
@@ -48,8 +58,6 @@ export default function Card(props: CardProps) {
     clearCanvas(canvasRef.current);
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height * 0.05;
-    const x1 = ev.clientX;
-    const y1 = ev.clientY;
 
     createShadow(canvasRef.current, { x, y, x1, y1 });
   };
