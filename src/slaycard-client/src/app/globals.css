@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap');
+
+h1 {
+  @apply text-4xl;
+  font-weight: bold;
+  font-family: 'Geologica', sans-serif;
+  font-family: 'Inclusive Sans', sans-serif;
+}
+
+@layer utilities {
+  .row-parent::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+  }
+  
+  .row-parent::-webkit-scrollbar-track {
+    background: rgb(0,0,0);
+    border: 0;
+  }
+  
+  .row-parent::-webkit-scrollbar-thumb {
+    background: rgb(100, 100, 100);
+    border: 0px solid rgb(0,0,0);
+  }
+
+  .row-parent::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+}
