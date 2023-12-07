@@ -5,8 +5,11 @@ import { useCardSelectionState } from "@/state/CardSelectedState";
 import { use, useEffect, useRef, useState } from "react";
 
 export type CardProps = {
+  id: number;
   name: string;
   isOfPlayer: boolean;
+  isSelected: boolean;
+  onSelected?: (card: CardProps) => void;
 };
 
 export default function Card(props: CardProps) {
@@ -43,11 +46,11 @@ export default function Card(props: CardProps) {
   }, [isSelectedLocal]);
 
   const onMouseMove = (ev: MouseEvent) => {
-    drawLine(ev.clientX, ev.clientY)
+    drawLine(ev.clientX, ev.clientY);
   };
 
   const onTouchMove = (ev: TouchEvent) => {
-    drawLine(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY)
+    drawLine(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);
   };
 
   const drawLine = (x1: number, y1: number) => {
@@ -69,13 +72,14 @@ export default function Card(props: CardProps) {
   return (
     <div
       ref={ref}
-      //onClick={select}
-      className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-8 
+      onClick={() => { props.onSelected && props.onSelected(props) }}
+      className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-8 shadow-2xl
         ${isSelectedLocal && "z-10"} ${
-          !isSelected ||
-          (isSelected &&
-            !props.isOfPlayer &&
-            "cursor-pointer hover:bg-slate-800 active:bg-slate-900 ")
+          (props.isSelected || !isSelected || (isSelected && !props.isOfPlayer)) &&
+          "cursor-pointer hover:bg-slate-800 active:bg-slate-900"
+        }
+        ${
+          props.isSelected && "bg-slate-900 outline-lime-600 outline outline-2"
         }`}
       style={{ aspectRatio: 1 / 1.5 }}
     >

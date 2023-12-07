@@ -57,7 +57,7 @@ export default function ActionCard(props: ActionCardProps) {
         onDrag={ev => onMouseMove(ev)}
         onMouseDown={select}
         onMouseUp={unselect}
-        className={`relative bg-slate-700 h-[50%] rounded-lg flex flex-col items-center justify-center
+        className={`relative bg-slate-700 h-[50%] rounded-lg flex flex-col items-center justify-center shadow-2xl
         ${ isSelectedLocal && "z-10" } ${!isSelected && "cursor-pointer hover:bg-slate-800 active:bg-slate-900 "}`}
         style={{ aspectRatio: 1 / 1 }}
       >
