@@ -50,9 +50,8 @@ export default function () {
   };
 
   return (
-    <div className="flex w-full h-full justify-center p-10 select-none transition-transform">
-      <div className="w-full h-full flex flex-col gap-1">
-        <div className="relative h-full flex gap-1 justify-center"></div>
+    <div className="flex w-full h-full justify-center p-10 select-none flex-col">
+      <div className="w-full h-[80%] flex flex-col gap-1 py-10">
         <div className="relative h-full flex gap-1 justify-center">
           {enemyDeck.characterCards.map((card) => (
             <Card
@@ -68,7 +67,7 @@ export default function () {
           ))}
         </div>
         <div className="relative h-full flex gap-1 justify-center"></div>
-        <div className="relative h-full flex gap-1 justify-center overflow-clip">
+        <div className="relative h-full flex gap-1 justify-center items-center overflow-clip">
           {playerTurnState.selectedCardForAction &&
             playerDeck.characterCards
               .find((c) => c.id === playerTurnState.selectedCardForAction?.id)
@@ -100,7 +99,20 @@ export default function () {
             />
           ))}
         </div>
-        <div className="relative h-full flex gap-1 justify-center" />
+      </div>
+      <div className="scroll-view relative w-full h-[20%] flex flex-col gap-1 items-center overflow-x-auto">
+          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-lg"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-lg"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-lg"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-lg"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-lg"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-lg"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ export default function Card(props: CardProps) {
       onClick={() => {
         props.onSelected && props.onSelected(props);
       }}
-      className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-8 shadow-2xl
+      className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-10 shadow-2xl
         ${isSelectedLocal && "z-10"} ${
           (props.isSelected ||
             !isSelected ||
@@ -91,7 +91,7 @@ export default function Card(props: CardProps) {
       style={{ aspectRatio: 1 / 1.5 }}
     >
       <div
-        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-black rounded-md"
+        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-red-500 rounded-md"
         style={{ aspectRatio: 1 / 1 }}
       >
         <span
@@ -99,6 +99,28 @@ export default function Card(props: CardProps) {
           style={{ fontSize: "1.3cqh" }}
         >
           {props.hp}
+        </span>
+      </div>
+      <div
+        className="hp absolute top-[3%] right-[6%] w-[20%] flex justify-center items-center bg-black rounded-md"
+        style={{ aspectRatio: 1 / 1 }}
+      >
+        <span
+          className="absolute text-white font-bold"
+          style={{ fontSize: "1.3cqh" }}
+        >
+          {props.attack}
+        </span>
+      </div>
+      <div
+        className="hp absolute bottom-[3%] left-[6%] w-[20%] flex justify-center items-center bg-yellow-600 rounded-md"
+        style={{ aspectRatio: 1 / 1 }}
+      >
+        <span
+          className="absolute text-white font-bold"
+          style={{ fontSize: "1.3cqh" }}
+        >
+          {props.energy}
         </span>
       </div>
       <span

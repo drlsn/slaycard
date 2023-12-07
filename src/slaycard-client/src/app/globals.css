@@ -12,22 +12,23 @@ h1 {
 }
 
 @layer utilities {
-  .row-parent::-webkit-scrollbar {
-    height: 0px;
-    width: 0px;
+  .scroll-view::-webkit-scrollbar {
+    width: 8px;
   }
   
-  .row-parent::-webkit-scrollbar-track {
-    background: rgb(0,0,0);
+  .scroll-view::-webkit-scrollbar-track {
+    background: rgb(200, 200, 200);
     border: 0;
+    border-radius: 10px;
   }
   
-  .row-parent::-webkit-scrollbar-thumb {
-    background: rgb(100, 100, 100);
+  .scroll-view::-webkit-scrollbar-thumb {
+    background: rgb(0,0,0);
     border: 0px solid rgb(0,0,0);
+    border-radius: 10px;
   }
 
-  .row-parent::-webkit-scrollbar-thumb:hover {
+  .scroll-view::-webkit-scrollbar-thumb:hover {
     background: #c0a0b9;
   }
 }
