@@ -6,12 +6,18 @@ import { useCombatState } from "@/state/CombatState";
 import { useState } from "react";
 
 export default function () {
-  const { turn, playerTurnState, setSelectedCardForActionState } = useCombatState();
-  const [_, refreshView] = useState<any>(null)
+  const {
+    turn,
+    enemyDeck,
+    playerDeck,
+    playerTurnState,
+    setSelectedCardForActionState,
+  } = useCombatState();
+  const [_, refreshView] = useState<any>(null);
 
   const onCardSelected = (props: CardProps) => {
-    setSelectedCardForActionState(props)
-    refreshView({})
+    setSelectedCardForActionState(props);
+    refreshView({});
   };
 
   return (
@@ -19,40 +25,39 @@ export default function () {
       <div className="w-full h-full flex flex-col gap-1">
         <div className="relative h-full flex gap-1 justify-center"></div>
         <div className="relative h-full flex gap-1 justify-center">
-          <Card id={0} name="bandit" isOfPlayer={false} isSelected={false} />
-          <Card id={0} name="imp" isOfPlayer={false} isSelected={false} />
-          <Card id={0} name="ghul" isOfPlayer={false} isSelected={false} />
+          {enemyDeck.characterCards.map((card) => (
+            <Card
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              isOfPlayer={false}
+              isSelected={false}
+              hp={card.hp}
+              energy={card.energy}
+              attack={card.attack}
+            />
+          ))}
         </div>
         <div className="relative h-full flex gap-1 justify-center"></div>
         <div className="relative h-full flex gap-1 justify-center">
-          <ActionCard name="Mid Melee" />
-          <ActionCard name="Big Melee" />
-          <ActionCard name="Mid Blast" />
-          <ActionCard name="Mid Blast" />
-          <ActionCard name="Big Blast" />
+          {playerDeck.actionCards.map((card) => (
+            <ActionCard key={card.id} id={card.id} name={card.name} />
+          ))}
         </div>
         <div className="relative h-full flex gap-1 justify-center">
-          <Card
-            id={11}
-            name="Cedric"
-            isOfPlayer={true}
-            isSelected={playerTurnState.selectedCardForAction?.id === 11}
-            onSelected={onCardSelected}
-          />
-          <Card
-            id={12}
-            name="Elessandra"
-            isOfPlayer={true}
-            isSelected={playerTurnState.selectedCardForAction?.id === 12}
-            onSelected={onCardSelected}
-          />
-          <Card
-            id={13}
-            name="Gurdoc"
-            isOfPlayer={true}
-            isSelected={playerTurnState.selectedCardForAction?.id === 13}
-            onSelected={onCardSelected}
-          />
+          {playerDeck.characterCards.map((card) => (
+            <Card
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              isOfPlayer={true}
+              isSelected={playerTurnState.selectedCardForAction?.id === card.id}
+              onSelected={onCardSelected}
+              hp={card.hp}
+              energy={card.energy}
+              attack={card.attack}
+            />
+          ))}
         </div>
         <div className="relative h-full flex gap-1 justify-center" />
       </div>

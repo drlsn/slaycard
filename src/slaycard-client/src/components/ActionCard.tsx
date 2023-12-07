@@ -5,6 +5,7 @@ import { useCardSelectionState } from "@/state/CardSelectedState";
 import { useEffect, useRef, useState } from "react";
 
 export type ActionCardProps = {
+  id: number
   name: string
 };
 

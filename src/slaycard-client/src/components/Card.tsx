@@ -7,6 +7,9 @@ import { use, useEffect, useRef, useState } from "react";
 export type CardProps = {
   id: number;
   name: string;
+  hp: number;
+  energy: number;
+  attack: number;
   isOfPlayer: boolean;
   isSelected: boolean;
   onSelected?: (card: CardProps) => void;
@@ -72,10 +75,14 @@ export default function Card(props: CardProps) {
   return (
     <div
       ref={ref}
-      onClick={() => { props.onSelected && props.onSelected(props) }}
+      onClick={() => {
+        props.onSelected && props.onSelected(props);
+      }}
       className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-8 shadow-2xl
         ${isSelectedLocal && "z-10"} ${
-          (props.isSelected || !isSelected || (isSelected && !props.isOfPlayer)) &&
+          (props.isSelected ||
+            !isSelected ||
+            (isSelected && !props.isOfPlayer)) &&
           "cursor-pointer hover:bg-slate-800 active:bg-slate-900"
         }
         ${
@@ -84,14 +91,14 @@ export default function Card(props: CardProps) {
       style={{ aspectRatio: 1 / 1.5 }}
     >
       <div
-        className="absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-black rounded-md"
+        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-black rounded-md"
         style={{ aspectRatio: 1 / 1 }}
       >
         <span
           className="absolute text-white font-bold -translate-x-[5%] translate-y-[3%]"
           style={{ fontSize: "1.3cqh" }}
         >
-          7
+          {props.hp}
         </span>
       </div>
       <span
