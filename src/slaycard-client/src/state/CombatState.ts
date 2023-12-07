@@ -6,27 +6,34 @@ const enemyDeck: CardDeckVM = {
     { id: 1, name: "Goblin", hp: 6, attack: 3, energy: 5 },
     { id: 2, name: "Imp", hp: 2, attack: 4, energy: 3 },
   ],
-  actionCards: [
-    { id: 10, name: "Melee", energyCost: 2, damageFactor: 0.8 },
-    { id: 11, name: "Blast", energyCost: 2, damageFactor: 0.8 },
-    { id: 12, name: "Fire", energyCost: 2, damageFactor: 0.8 },
-    { id: 13, name: "Storm", energyCost: 2, damageFactor: 0.8 },
-    { id: 14, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
-  ],
 };
 
 const playerDeck: CardDeckVM = {
   characterCards: [
-    { id: 1, name: "Ellesandra", hp: 6, attack: 3, energy: 5 },
-    { id: 2, name: "Garmir", hp: 2, attack: 4, energy: 3 },
-    { id: 3, name: "Tuvial", hp: 2, attack: 4, energy: 3 },
-  ],
-  actionCards: [
-    { id: 1, name: "Melee", energyCost: 2, damageFactor: 0.8 },
-    { id: 2, name: "Blast", energyCost: 2, damageFactor: 0.8 },
-    { id: 3, name: "Fire", energyCost: 2, damageFactor: 0.8 },
-    { id: 4, name: "Storm", energyCost: 2, damageFactor: 0.8 },
-    { id: 5, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+    { id: 1, name: "Ellesandra", hp: 6, attack: 3, energy: 5, actionCards: [
+        { id: 1, name: "Melee", energyCost: 2, damageFactor: 0.8 },
+        { id: 2, name: "Blast", energyCost: 2, damageFactor: 0.8 },
+        { id: 3, name: "Fire", energyCost: 2, damageFactor: 0.8 },
+        { id: 4, name: "Storm", energyCost: 2, damageFactor: 0.8 },
+        { id: 5, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+      ],
+    },
+    { id: 2, name: "Garmir", hp: 2, attack: 4, energy: 3, actionCards: [
+      { id: 1, name: "Ice", energyCost: 2, damageFactor: 0.8 },
+      { id: 2, name: "Fire", energyCost: 2, damageFactor: 0.8 },
+      { id: 3, name: "Fire", energyCost: 2, damageFactor: 0.8 },
+      { id: 4, name: "Fire", energyCost: 2, damageFactor: 0.8 },
+      { id: 5, name: "Fire", energyCost: 2, damageFactor: 0.8 },
+    ],
+   },
+    { id: 3, name: "Tuvial", hp: 2, attack: 4, energy: 3, actionCards: [
+      { id: 1, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+      { id: 2, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+      { id: 3, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+      { id: 4, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+      { id: 5, name: "Bolt", energyCost: 2, damageFactor: 0.8 },
+    ],
+   },
   ],
 };
 
@@ -46,7 +53,7 @@ export const useCombatState = create<CombatState>()((set, get) => ({
   playerTurnState: { selectedCardForAction: undefined },
   setCombatState: (turn: Turn) => {
     const state = get();
-    state.turn = turn
+    state.turn = turn;
     set(state);
   },
 
@@ -72,6 +79,7 @@ type CardVM = {
   hp: number;
   attack: number;
   energy: number;
+  actionCards?: ActionCardVM[];
 };
 
 type ActionCardVM = {
@@ -83,5 +91,4 @@ type ActionCardVM = {
 
 type CardDeckVM = {
   characterCards: CardVM[];
-  actionCards: ActionCardVM[];
 };

@@ -95,7 +95,7 @@ export default function Card(props: CardProps) {
         style={{ aspectRatio: 1 / 1 }}
       >
         <span
-          className="absolute text-white font-bold -translate-x-[5%] translate-y-[3%]"
+          className="absolute text-white font-bold"
           style={{ fontSize: "1.3cqh" }}
         >
           {props.hp}
