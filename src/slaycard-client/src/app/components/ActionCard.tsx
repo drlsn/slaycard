@@ -50,24 +50,35 @@ export const ActionCard = forwardRef<CardRef, ActionCardProps>(
     const unselect = () => {
       setSelectedLocal(false);
       setSelected(false, undefined);
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("mouseup", unselect);
     };
 
     useEffect(() => {
       if (!isSelectedLocal) return;
       window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("touchmove", onTouchMove);
       window.addEventListener("mouseup", unselect);
       return unselect;
     }, [isSelectedLocal]);
 
-    const onMouseMove = (ev: any) => {
+    const onMouseMove = (ev: MouseEvent) => {
+      drawLine(ev.clientX, ev.clientY);
+    };
+
+    const onTouchMove = (ev: TouchEvent) => {
+      drawLine(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);
+    };
+
+    const drawLine = (x1: number, y1: number) => {
       if (!ref.current || !canvasRef.current) return;
+
       const rect = ref.current.getBoundingClientRect();
 
       clearCanvas(canvasRef.current);
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height * 0.05;
-      const x1 = ev.clientX;
-      const y1 = ev.clientY;
 
       createShadow(canvasRef.current, { x, y, x1, y1 });
     };
@@ -76,7 +87,8 @@ export const ActionCard = forwardRef<CardRef, ActionCardProps>(
       <>
         <div
           ref={ref}
-          onDrag={(ev) => onMouseMove(ev)}
+          onTouchStart={() => select()}
+          onTouchEnd={() => unselect()}
           onMouseDown={select}
           onMouseUp={unselect}
           className={`relative bg-slate-700 h-[50%] rounded-lg flex flex-col items-center justify-center shadow-2xl

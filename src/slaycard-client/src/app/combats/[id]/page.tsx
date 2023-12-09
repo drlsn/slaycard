@@ -50,7 +50,7 @@ export default function () {
   };
 
   return (
-    <div className="flex w-full h-full justify-center p-10 select-none flex-col">
+    <div className="flex w-full h-full justify-center p-4 select-none flex-col">
       <div className="w-full h-[80%] flex flex-col gap-1 py-10">
         <div className="relative h-full flex gap-1 justify-center">
           {enemyDeck.characterCards.map((card) => (
