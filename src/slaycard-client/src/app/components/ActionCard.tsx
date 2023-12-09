@@ -1,7 +1,7 @@
 "use client";
 
-import { createShadow, clearCanvas } from "@/core/canvas/CanvasFunctions";
-import { useCardSelectionState } from "@/state/CardSelectedState";
+import { createShadow, clearCanvas } from "@/app/core/canvas/CanvasFunctions";
+import { useCardSelectionState } from "@/app/state/CardSelectedState";
 import {
   forwardRef,
   useEffect,

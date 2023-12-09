@@ -1,8 +1,8 @@
 "use client";
 
-import { ActionCard, CardRef } from "@/components/ActionCard";
-import Card, { CardProps } from "@/components/Card";
-import { useCombatState } from "@/state/CombatState";
+import { ActionCard, CardRef } from "@/app/components/ActionCard";
+import Card, { CardProps } from "@/app/components/Card";
+import { useCombatState } from "@/app/state/CombatState";
 import { useEffect, useState } from "react";
 
 export default function () {
@@ -101,18 +101,18 @@ export default function () {
         </div>
       </div>
       <div className="scroll-view relative w-full h-[20%] flex flex-col gap-1 items-center overflow-x-auto">
-          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
-          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
-          <span className="text-lg"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
-          <span className="text-lg"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
-          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
-          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
-          <span className="text-lg"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
-          <span className="text-lg"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
-          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
-          <span className="text-lg"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
-          <span className="text-lg"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
-          <span className="text-lg"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-xs"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-xs"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-xs"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-xs"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-xs"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-xs"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
       </div>
     </div>
   );
