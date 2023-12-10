@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+import Combat from "../entities/Combat";
 import CombatRepository from "../entities/CombatRepository";
 import { CommandHandler } from "../infrastructure/CommandHandler";
 import Result from "../infrastructure/Result";
@@ -12,7 +14,11 @@ export class StartCombatCommandHandler extends CommandHandler<StartCombatCommand
   }
 
   public override async handle(command: StartCombatCommand): Promise<Result> {
-    return Result.Failure;
+
+    const combat = new Combat(v4())
+    this.combatRepository.add(combat)
+
+    return Result.Success();
   }
 }
 
@@ -23,5 +29,5 @@ export async function handleStartCombatCommand(
   command: StartCombatCommand) : Promise<Result> 
 {
 
-  return Result.Failure;
+  return Result.Failure();
 }

@@ -1,7 +1,7 @@
 export default class Result {
 
-  public static readonly Success: Result = { isSuccess: true }
-  public static readonly Failure: Result = { isSuccess: true }
+  public static readonly Success = () => { return { isSuccess: true } }
+  public static readonly Failure = () => { return { isSuccess: false } }
 
   isSuccess: boolean
 
