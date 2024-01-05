@@ -27,21 +27,41 @@ export type CardRef = {
 enum BorderColor {
   Red = "border-red-300",
   Green = "border-green-300",
+  Blue = "border-blue-300",
+  Yellow = "border-yellow-300",
+  White  = "border-white-300",
 }
 
 enum BgColor {
   Red = "bg-red-300",
   Green = "bg-green-300",
+  Blue = "bg-blue-300",
+  Yellow = "bg-yellow-300",
+  White = "bg-white",
 }
 
 enum ShadowColor {
   Red = "box-shadow-red",
   Green = "box-shadow-green",
+  Blue = "box-shadow-blue",
+  Yellow = "box-shadow-yellow",
+  White = "box-shadow-white",
 }
 
 enum HueColor {
   Red = "hue-red",
   Green = "hue-green",
+  Blue = "hue-blue",
+  Yellow = "hue-yellow",
+  White = "hue-white",
+}
+
+enum HueBlurColor {
+  Red = "hue-red-blur",
+  Green = "hue-green-blur",
+  Blue = "hue-blue-blur",
+  Yellow = "hue-yellow-blur",
+  White = "hue-white-blur",
 }
 
 function strToBorderColor(str: string): BorderColor {
@@ -58,6 +78,10 @@ function strToShadowColor(str: string): ShadowColor {
 
 function strToHueColor(str: string): HueColor {
   return Object.values(HueColor).find(c => c.includes(str)) || HueColor.Red
+}
+
+function strToHueBlurColor(str: string): HueBlurColor {
+  return Object.values(HueBlurColor).find(c => c.includes(str)) || HueBlurColor.Red
 }
 
 type CardBorderProps = {
@@ -174,18 +198,16 @@ export const ActionCard = forwardRef<CardRef, ActionCardProps>(
           <div className="absolute w-[75%] h-[75%] pointer-events-none">
             {props.imagePath && (
               <>
-                {/* <Image
-                  className="absolute pointer-events-none opacity-60 hue-red-blur blur-sm"
-                  src="/skills/weapons/swords.png"
-                  // src="/skills/orbs/row-1-column-3.jpg"
+                <Image
+                  className={`absolute pointer-events-none opacity-50 ${strToHueBlurColor(props.color)}`}
+                  src={`${props.imagePath}`}
                   alt="Dope"
                   layout="fill"
                   objectFit="cover"
-                /> */}
+                />
                 <Image
                   className={`absolute pointer-events-none ${strToHueColor(props.color)}`}
-                  src="/skills/weapons/swordz.png"
-                  // src="/skills/orbs/row-1-column-3.jpg"
+                  src={`${props.imagePath}`}
                   alt="Dope"
                   layout="fill"
                   objectFit="cover"

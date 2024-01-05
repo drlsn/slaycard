@@ -50,10 +50,16 @@ h1 {
     box-shadow: 0 0 1px 1px rgba(140, 250, 177, 0.8), 0 0 1px 4px rgba(0, 255, 55, 0.15);
   }
 
-  .skill-button-icon-image {
-    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(0deg);
-    -webkit-filter: invert(1) saturate(10000%) hue-rotate(180deg);
-    pointer-events: none;
+  .box-shadow-blue {
+    box-shadow: 0 0 1px 1px rgba(140, 156, 250, 0.8), 0 0 1px 4px rgba(0, 17, 255, 0.15);
+  }
+
+  .box-shadow-yellow {
+    box-shadow: 0 0 1px 1px rgba(248, 250, 140, 0.8), 0 0 1px 4px rgba(255, 230, 0, 0.15);
+  }
+
+  .box-shadow-white {
+    box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8), 0 0 1px 4px rgba(112, 112, 112, 0.15);
   }
 
   .hue-red {
@@ -86,11 +92,33 @@ h1 {
     -webkit-filter: invert(1) brightness(70%) sepia(0.1) saturate(100%) hue-rotate(90deg) blur(2px);
   }
 
-  .mask1 {
-    mask-image: url("/skills/weapons/swords.png");
-    mask-mode: luminance;
+  .hue-blue {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(160deg);
+    -webkit-filter: invert(1) brightness(70%) sepia(1) saturate(100%) hue-rotate(160deg);
+  }
 
-    -webkit-mask-image: url("/skills/weapons/swords.png");
-    -webkit-mask-mode: luminance;
+  .hue-blue-blur {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(160deg) blur(2px);
+    -webkit-filter: invert(1) brightness(70%) sepia(1) saturate(100%) hue-rotate(160deg) blur(2px);
+  }
+
+  .hue-yellow {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(0deg);
+    -webkit-filter: invert(1) brightness(70%) sepia(1) saturate(100%) hue-rotate(0deg);
+  }
+
+  .hue-yellow-blur {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(0deg) blur(2px);
+    -webkit-filter: invert(1) brightness(70%) sepia(1) saturate(100%) hue-rotate(0deg) blur(2px);
+  }
+
+  .hue-white {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+  }
+
+  .hue-white-blur {
+    filter: invert(1) blur(2px);
+    -webkit-filter: invert(1) blur(2px);
   }
 }

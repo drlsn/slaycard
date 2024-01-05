@@ -33,14 +33,14 @@ const cardsData: string[] = [
 // ]
 
 const actionCardsData: string[] = [
-  "skills/things/tile002.jpg",
-  "skills/things/tile003.jpg",
-  "skills/things/tile005.jpg",
-  "skills/things/tile008.jpg",
-  "skills/things/tile007.jpg",
-  "skills/things/tile008.jpg",
-  "skills/things/tile013.jpg",
-  "skills/things/tile015.jpg",
+  "skills/weapons/shield.png",
+  "skills/weapons/swords.png",
+  "skills/weapons/speelbook.png",
+  "skills/weapons/dragon.png",
+  "skills/weapons/shield.png",
+  "skills/weapons/swords.png",
+  "skills/weapons/speelbook.png",
+  "skills/weapons/dragon.png",
 ]
 
 export default function () {
