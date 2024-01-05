@@ -55,11 +55,12 @@ export default function Card(props: CardProps) {
         <div className={`w-1/2 h-1/2 bg-white blur-lg opacity-100 pointer-events-none`} />
         {props.imagePath && (
           <Image
-            className="absolute hue-white scale-[175%] translate-y-20"
+            className="absolute hue-white scale-[175%]"
             src={`${props.imagePath}`}
             alt="Dope"
             layout="fill"
             unoptimized
+            style={{ top: "50%" }}
           />
         )}
       </div>
