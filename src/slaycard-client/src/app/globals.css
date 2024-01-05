@@ -32,3 +32,65 @@ h1 {
     background: #c0a0b9;
   }
 }
+
+@layer utilities {
+  .glow-shadow {
+    box-shadow: 0 0 1px 3px rgb(255, 255, 255, 0.1), 0 0 1px 5px rgb(255, 255, 255, 0.05);
+  }
+
+  .glow-shadow-green {
+    box-shadow: 0 0 1px 3px rgb(255, 255, 255, 0.1), 0 0 1px 5px rgb(255, 255, 255, 0.05);
+  }
+
+  .box-shadow-red {
+    box-shadow: 0 0 1px 1px rgb(250, 140, 140, 0.8), 0 0 1px 4px rgb(255, 0, 0, 0.15);
+  }
+
+  .box-shadow-green {
+    box-shadow: 0 0 1px 1px rgba(140, 250, 177, 0.8), 0 0 1px 4px rgba(0, 255, 55, 0.15);
+  }
+
+  .skill-button-icon-image {
+    filter: invert(1) brightness(50%) sepia(100%) saturate(10000%) hue-rotate(0deg);
+    -webkit-filter: invert(1) saturate(10000%) hue-rotate(180deg);
+    pointer-events: none;
+  }
+
+  .hue-red {
+    filter: invert(1) brightness(100%) sepia(100%) saturate(1000%) hue-rotate(290deg);
+    -webkit-filter: invert(1) brightness(100%) sepia(100%) saturate(1000%) hue-rotate(290deg);
+  }
+  
+  .hue-red-blur {
+    filter: invert(1) brightness(100%) sepia(100%) saturate(1000%) hue-rotate(290deg) blur(2px);
+    -webkit-filter: invert(1) brightness(100%) sepia(100%) saturate(1000%) hue-rotate(290deg) blur(2px);
+  }
+
+  .hue-orange {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(330deg);
+    -webkit-filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(330deg);
+  }
+
+  .hue-orange-blur {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(330deg);
+    -webkit-filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(330deg) blur(2px);
+  }
+  
+  .hue-green {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(10000%) hue-rotate(90deg);
+    -webkit-filter: invert(1) brightness(70%) sepia(1) saturate(100%) hue-rotate(90deg);
+  }
+
+  .hue-green-blur {
+    filter: invert(1) brightness(70%) sepia(0.1) saturate(100%) hue-rotate(90deg) blur(2px);
+    -webkit-filter: invert(1) brightness(70%) sepia(0.1) saturate(100%) hue-rotate(90deg) blur(2px);
+  }
+
+  .mask1 {
+    mask-image: url("/skills/weapons/swords.png");
+    mask-mode: luminance;
+
+    -webkit-mask-image: url("/skills/weapons/swords.png");
+    -webkit-mask-mode: luminance;
+  }
+}

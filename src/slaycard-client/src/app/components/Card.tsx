@@ -1,8 +1,8 @@
 "use client";
 
-import { createShadow, clearCanvas } from "@/app/core/canvas/CanvasFunctions";
 import { useCardSelectionState } from "@/app/state/CardSelectedState";
-import { use, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 
 export type CardProps = {
   id: number;
@@ -12,6 +12,7 @@ export type CardProps = {
   attack: number;
   isOfPlayer: boolean;
   isSelected: boolean;
+  imagePath?: string;
   onSelected?: (card: CardProps) => void;
 };
 
@@ -27,7 +28,7 @@ export default function Card(props: CardProps) {
       onClick={() => {
         props.onSelected && props.onSelected(props);
       }}
-      className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-10 shadow-2xl
+      className={`relative bg-slate-700 h-full rounded-lg flex flex-col items-center pt-10 shadow-2xl overflow-clip
         ${isSelectedLocal && "z-10"} ${
           (props.isSelected ||
             !isSelected ||
@@ -35,10 +36,19 @@ export default function Card(props: CardProps) {
           "cursor-pointer hover:bg-slate-800 active:bg-slate-900"
         }
         ${
-          props.isSelected && "bg-slate-900 outline-lime-600 outline outline-2"
+          props.isSelected && "bg-slate-900 outline-lime-600 outline outline-2 glow-shadow"
         }`}
       style={{ aspectRatio: 1 / 1.5 }}
     >
+      {props.imagePath && (
+          <Image
+            src={`${props.imagePath}`}
+            alt="Dope"
+            layout="fill"
+            objectFit="cover"
+            quality={2}
+          />
+      )}
       <div
         className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-red-500 rounded-md"
         style={{ aspectRatio: 1 / 1 }}

@@ -5,6 +5,44 @@ import Card, { CardProps } from "@/app/components/Card";
 import { useCombatState } from "@/app/state/CombatState";
 import { useEffect, useState } from "react";
 
+// const cardsData: string[] = [
+//   "cards/bearder.jpg",
+//   "cards/dwarf.jpg",
+//   "cards/girl-hakujin.jpg",
+//   "cards/girl.jpg",
+//   "cards/mermaid.jpg"
+// ]
+
+const cardsData: string[] = [
+  "cards2/devil.jpg",
+  "cards2/mage.jpg",
+  "cards2/orc.jpg",
+  "cards2/peasant.jpg",
+  "cards2/werewolf.jpg"
+]
+
+// const actionCardsData: string[] = [
+//   "skills/orbs/row-1-column-1.jpg",
+//   "skills/orbs/row-1-column-2.jpg",
+//   "skills/orbs/row-1-column-3.jpg",
+//   "skills/orbs/row-1-column-4.jpg",
+//   "skills/orbs/row-2-column-1.jpg",
+//   "skills/orbs/row-2-column-2.jpg",
+//   "skills/orbs/row-2-column-3.jpg",
+//   "skills/orbs/row-2-column-4.jpg",
+// ]
+
+const actionCardsData: string[] = [
+  "skills/things/tile002.jpg",
+  "skills/things/tile003.jpg",
+  "skills/things/tile005.jpg",
+  "skills/things/tile008.jpg",
+  "skills/things/tile007.jpg",
+  "skills/things/tile008.jpg",
+  "skills/things/tile013.jpg",
+  "skills/things/tile015.jpg",
+]
+
 export default function () {
   const actionCards: (CardRef | null)[] = [];
 
@@ -63,11 +101,12 @@ export default function () {
               hp={card.hp}
               energy={card.energy}
               attack={card.attack}
+              imagePath={`/${cardsData[card.imageIndex]}`}
             />
           ))}
         </div>
         <div className="relative h-full flex gap-1 justify-center"></div>
-        <div className="relative h-full flex gap-1 justify-center items-center overflow-clip">
+        <div className="relative h-full flex gap-2 justify-center items-center overflow-clip">
           {playerTurnState.selectedCardForAction &&
             playerDeck.characterCards
               .find((c) => c.id === playerTurnState.selectedCardForAction?.id)
@@ -77,6 +116,8 @@ export default function () {
                   id={card.id}
                   name={card.name}
                   index={i}
+                  color={card.color}
+                  imagePath={`/${actionCardsData[card.imageIndex]}`}
                   ref={(ref) =>
                     !actionCards.find((x) => x?.props.id === card.id) &&
                     actionCards.push(ref)
@@ -96,6 +137,7 @@ export default function () {
               hp={card.hp}
               energy={card.energy}
               attack={card.attack}
+              imagePath={`/${cardsData[card.imageIndex]}`}
             />
           ))}
         </div>
