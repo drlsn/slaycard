@@ -1,9 +1,14 @@
 "use client";
 
 import { useCardSelectionState } from "@/app/state/CardSelectedState";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { CardBorder, strToBgColor, strToBorderColor, strToShadowColor } from "./ActionCard";
+import {
+  CardBorder,
+  strToBgColor,
+  strToBorderColor,
+  strToShadowColor,
+} from "./ActionCard";
 
 export type CardProps = {
   id: number;
@@ -23,6 +28,18 @@ export default function Card(props: CardProps) {
   const [isSelectedLocal, setSelectedLocal] = useState(false);
   const { isSelected, setSelected } = useCardSelectionState();
 
+  function getBorderMarkColor(isSelected: boolean) {
+    return isSelected
+      ? strToBorderColor("blue")
+      : strToBorderColor("white");
+  }
+
+  function getBorderMarkShadow(isSelected: boolean) {
+    return isSelected
+    ? strToShadowColor("blue")
+    : strToShadowColor("white");
+  }
+
   return (
     <div
       ref={ref}
@@ -37,12 +54,12 @@ export default function Card(props: CardProps) {
           "cursor-pointer hover:bg-slate-800 active:bg-slate-900"
         }
         ${
-          (props.isSelected && strToShadowColor("blue")) || strToShadowColor("white")
+          (props.isSelected && strToShadowColor("blue")) ||
+          strToShadowColor("white")
         }`}
       style={{ aspectRatio: 1 / 1.5 }}
     >
-     
-      <div className="relative w-full h-full overflow-clip flex flex-col justify-center items-center">
+      <div className="absolute w-full h-full overflow-clip flex flex-col justify-center items-center">
         {props.imagePath && (
           <Image
             className="absolute bg-repeat-y h-full w-full top-0 pointer-events-none"
@@ -52,7 +69,9 @@ export default function Card(props: CardProps) {
             objectFit="cover"
           />
         )}
-        <div className={`w-1/2 h-1/2 bg-white blur-lg opacity-100 pointer-events-none`} />
+        <div
+          className={`w-1/2 h-1/2 bg-white blur-lg opacity-100 pointer-events-none`}
+        />
         {props.imagePath && (
           <Image
             className="absolute hue-white scale-[175%]"
@@ -63,57 +82,64 @@ export default function Card(props: CardProps) {
             style={{ top: "50%" }}
           />
         )}
+
+        <div className="absolute bottom-0 w-full h-[50%] bg-gradient-to-t from-black to-transparent" />
       </div>
 
+      <div
+        className={`absolute w-[15%] h-0 ${getBorderMarkColor(props.isSelected)} border-1 -top-[1px] -left-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-0 h-[10%] ${getBorderMarkColor(props.isSelected)} border-1 -top-[1px] -left-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-[15%] h-0 ${getBorderMarkColor(props.isSelected)} border-1 -bottom-[1px] -right-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-0 h-[10%] ${getBorderMarkColor(props.isSelected)} border-1 -bottom-[1px] -right-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-[15%] h-0 ${getBorderMarkColor(props.isSelected)} border-1 -top-[1px] -right-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-0 h-[10%] ${getBorderMarkColor(props.isSelected)} border-1 -top-[1px] -right-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-[15%] h-0 ${getBorderMarkColor(props.isSelected)} border-1 -bottom-[1px] -left-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
+      <div
+        className={`absolute w-0 h-[10%] ${getBorderMarkColor(props.isSelected)} border-1 -bottom-[1px] -left-[1px] ${getBorderMarkShadow(props.isSelected)}`}
+      />
 
-      <div className={`absolute w-[15%] h-0 ${strToBorderColor("white")} border-1 -top-[1px] -left-[1px] ${strToShadowColor("white")}`} />
-      <div className={`absolute w-0 h-[10%] ${strToBorderColor("white")} border-1 -top-[1px] -left-[1px] ${strToShadowColor("white")}`}/>
-      <div className={`absolute w-[15%] h-0 ${strToBorderColor("white")} border-1 -bottom-[1px] -right-[1px] ${strToShadowColor("white")}`}/>
-      <div className={`absolute w-0 h-[10%] ${strToBorderColor("white")} border-1 -bottom-[1px] -right-[1px] ${strToShadowColor("white")}`}/>
-      <div className={`absolute w-[15%] h-0 ${strToBorderColor("white")} border-1 -top-[1px] -right-[1px] ${strToShadowColor("white")}`} />
-      <div className={`absolute w-0 h-[10%] ${strToBorderColor("white")} border-1 -top-[1px] -right-[1px] ${strToShadowColor("white")}`}/>
-      <div className={`absolute w-[15%] h-0 ${strToBorderColor("white")} border-1 -bottom-[1px] -left-[1px] ${strToShadowColor("white")}`}/>
-      <div className={`absolute w-0 h-[10%] ${strToBorderColor("white")} border-1 -bottom-[1px] -left-[1px] ${strToShadowColor("white")}`}/>
-
-      {/* <div
-        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-red-500 rounded-md"
+      <div
+        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-red-500 bg-opacity-20 box-shadow-red"
         style={{ aspectRatio: 1 / 1 }}
       >
         <span
-          className="absolute text-white font-bold"
-          style={{ fontSize: "1.3cqh" }}
+          className="absolute text-red-100 font-bold h-full font-['arial']"
+          style={{ fontSize: "1.5cqh" }}
         >
           {props.hp}
         </span>
       </div>
       <div
-        className="hp absolute top-[3%] right-[6%] w-[20%] flex justify-center items-center bg-black rounded-md"
+        className="hp absolute top-[3%] right-[6%] w-[20%] flex justify-center items-center bg-green-500 bg-opacity-20 box-shadow-green"
         style={{ aspectRatio: 1 / 1 }}
       >
         <span
-          className="absolute text-white font-bold"
-          style={{ fontSize: "1.3cqh" }}
+          className="absolute text-green-100 font-bold h-full font-['arial']"
+          style={{ fontSize: "1.5cqh" }}
         >
           {props.attack}
         </span>
       </div>
-      <div
-        className="hp absolute bottom-[3%] left-[6%] w-[20%] flex justify-center items-center bg-yellow-600 rounded-md"
-        style={{ aspectRatio: 1 / 1 }}
-      >
-        <span
-          className="absolute text-white font-bold"
-          style={{ fontSize: "1.3cqh" }}
-        >
-          {props.energy}
-        </span>
-      </div> */}
-      {/* <span
-        className="text-white font-bold w-full text-center"
-        style={{ fontSize: "1.3cqh" }}
+
+      <h6
+        className="absolute text-white font-bold w-full text-center"
+        style={{ bottom: "0.5cqh", fontSize: "1.5cqh", lineHeight: "1.5cqh" }}
       >
         {props.name}
-      </span> */}
+      </h6>
     </div>
   );
 }

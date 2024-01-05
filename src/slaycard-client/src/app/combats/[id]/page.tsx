@@ -142,20 +142,20 @@ export default function CombatPage() {
           ))}
         </div>
       </div>
-      <div className="scroll-view relative w-full h-[20%] flex flex-col gap-1 items-center overflow-x-auto">
-          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
-          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
-          <span className="text-xs"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
-          <span className="text-xs"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
-          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
-          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
-          <span className="text-xs"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
-          <span className="text-xs"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
-          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
-          <span className="text-xs"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
-          <span className="text-xs"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
-          <span className="text-xs"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
-      </div>
+      {/* <div className="scroll-view relative w-full h-[20%] flex flex-col gap-1 items-center overflow-x-auto">
+          <span className="text-xs text-white"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-xs text-white"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-xs text-white"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-xs text-white"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-xs text-white"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-xs text-white"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-xs text-white"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-xs text-white"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+          <span className="text-xs text-white"><strong>Ellesandra</strong> damaged <strong>3</strong> to <strong>Imp</strong></span>
+          <span className="text-xs text-white"><strong>Ellesandra</strong> damaged <strong>2</strong> to <strong>Goblin</strong></span>
+          <span className="text-xs text-white"><strong>Goblin</strong> heals <strong>3</strong> hp</span>
+          <span className="text-xs text-white"><strong>Imp</strong> damaged <strong>1</strong> to <strong>Garmir</strong></span>
+      </div> */}
     </div>
   );
 }

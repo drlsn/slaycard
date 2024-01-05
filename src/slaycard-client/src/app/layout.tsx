@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Playfair({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DB Gwent",
