@@ -14,11 +14,11 @@ import { useEffect, useState } from "react";
 // ]
 
 const cardsData: string[] = [
-  "cards2/devil.jpg",
-  "cards2/mage.jpg",
-  "cards2/orc.jpg",
-  "cards2/peasant.jpg",
-  "cards2/werewolf.jpg"
+  "characters/warrior-b.png",
+  "characters/archer-b.png",
+  "characters/warrior-b.png",
+  "characters/archer-b.png",
+  "characters/warrior-b.png",
 ]
 
 // const actionCardsData: string[] = [
@@ -90,7 +90,7 @@ export default function () {
   return (
     <div className="flex w-full h-full justify-center p-4 select-none flex-col">
       <div className="w-full h-[80%] flex flex-col gap-1 py-10">
-        <div className="relative h-full flex gap-1 justify-center">
+        <div className="relative h-full flex gap-2 justify-center">
           {enemyDeck.characterCards.map((card) => (
             <Card
               key={card.id}
@@ -125,7 +125,7 @@ export default function () {
                 />
               ))}
         </div>
-        <div className="relative h-full flex gap-1 justify-center">
+        <div className="relative h-full flex gap-2 justify-center">
           {playerDeck.characterCards.map((card) => (
             <Card
               key={card.id}

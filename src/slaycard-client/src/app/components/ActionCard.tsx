@@ -24,7 +24,7 @@ export type CardRef = {
   props: ActionCardProps;
 };
 
-enum BorderColor {
+export enum BorderColor {
   Red = "border-red-300",
   Green = "border-green-300",
   Blue = "border-blue-300",
@@ -32,7 +32,7 @@ enum BorderColor {
   White  = "border-white-300",
 }
 
-enum BgColor {
+export enum BgColor {
   Red = "bg-red-300",
   Green = "bg-green-300",
   Blue = "bg-blue-300",
@@ -40,7 +40,7 @@ enum BgColor {
   White = "bg-white",
 }
 
-enum ShadowColor {
+export enum ShadowColor {
   Red = "box-shadow-red",
   Green = "box-shadow-green",
   Blue = "box-shadow-blue",
@@ -48,7 +48,7 @@ enum ShadowColor {
   White = "box-shadow-white",
 }
 
-enum HueColor {
+export enum HueColor {
   Red = "hue-red",
   Green = "hue-green",
   Blue = "hue-blue",
@@ -56,7 +56,7 @@ enum HueColor {
   White = "hue-white",
 }
 
-enum HueBlurColor {
+export enum HueBlurColor {
   Red = "hue-red-blur",
   Green = "hue-green-blur",
   Blue = "hue-blue-blur",
@@ -64,23 +64,23 @@ enum HueBlurColor {
   White = "hue-white-blur",
 }
 
-function strToBorderColor(str: string): BorderColor {
+export function strToBorderColor(str: string): BorderColor {
   return Object.values(BorderColor).find(c => c.includes(str)) || BorderColor.Red
 }
 
-function strToBgColor(str: string): BgColor {
+export function strToBgColor(str: string): BgColor {
   return Object.values(BgColor).find(c => c.includes(str)) || BgColor.Red
 }
 
-function strToShadowColor(str: string): ShadowColor {
+export function strToShadowColor(str: string): ShadowColor {
   return Object.values(ShadowColor).find(c => c.includes(str)) || ShadowColor.Red
 }
 
-function strToHueColor(str: string): HueColor {
+export function strToHueColor(str: string): HueColor {
   return Object.values(HueColor).find(c => c.includes(str)) || HueColor.Red
 }
 
-function strToHueBlurColor(str: string): HueBlurColor {
+export function strToHueBlurColor(str: string): HueBlurColor {
   return Object.values(HueBlurColor).find(c => c.includes(str)) || HueBlurColor.Red
 }
 
@@ -90,7 +90,7 @@ type CardBorderProps = {
   shadowColor: ShadowColor;
 }
 
-function CardBorder(props: CardBorderProps) {
+export function CardBorder(props: CardBorderProps) {
   return (
     <>
       <div className={`absolute w-[15%] h-0 ${props.borderColor} border-1 -top-[1px] -left-[1px] ${props.shadowColor}`} />
@@ -198,13 +198,13 @@ export const ActionCard = forwardRef<CardRef, ActionCardProps>(
           <div className="absolute w-[75%] h-[75%] pointer-events-none">
             {props.imagePath && (
               <>
-                <Image
-                  className={`absolute pointer-events-none opacity-50 ${strToHueBlurColor(props.color)}`}
+                {/* <Image
+                  className={`absolute pointer-events-none  opacity-50 ${strToHueBlurColor(props.color)}`}
                   src={`${props.imagePath}`}
                   alt="Dope"
                   layout="fill"
                   objectFit="cover"
-                />
+                /> */}
                 <Image
                   className={`absolute pointer-events-none ${strToHueColor(props.color)}`}
                   src={`${props.imagePath}`}
