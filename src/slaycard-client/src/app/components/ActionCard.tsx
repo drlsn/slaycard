@@ -240,3 +240,5 @@ export const ActionCard = forwardRef<CardRef, ActionCardProps>(
     );
   }
 );
+
+ActionCard.displayName = 'ActionCard';

@@ -43,7 +43,7 @@ const actionCardsData: string[] = [
   "skills/weapons/dragon.png",
 ]
 
-export default function () {
+export default function CombatPage() {
   const actionCards: (CardRef | null)[] = [];
 
   const {

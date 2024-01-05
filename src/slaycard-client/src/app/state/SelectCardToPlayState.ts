@@ -1,4 +1,4 @@
-import { CardProps } from "@/components/Card";
+import { CardProps } from "@/app/components/Card";
 import { create } from "zustand";
 
 type SelectCardToPlayState = {
