@@ -74,12 +74,12 @@ export default function Card(props: CardProps) {
         />
         {props.imagePath && (
           <Image
-            className="absolute hue-white scale-[175%]"
+            className="absolute" // hue-white scale-[175%]
             src={`${props.imagePath}`}
             alt="Dope"
             layout="fill"
             unoptimized
-            style={{ top: "50%" }}
+            style={{ top: "0%" }}
           />
         )}
 
@@ -112,7 +112,7 @@ export default function Card(props: CardProps) {
       />
 
       <div
-        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-red-500 bg-opacity-20 box-shadow-red"
+        className="hp absolute top-[3%] left-[6%] w-[20%] flex justify-center items-center bg-red-500 bg-opacity-50 box-shadow-red"
         style={{ aspectRatio: 1 / 1 }}
       >
         <span
@@ -123,7 +123,7 @@ export default function Card(props: CardProps) {
         </span>
       </div>
       <div
-        className="hp absolute top-[3%] right-[6%] w-[20%] flex justify-center items-center bg-green-500 bg-opacity-20 box-shadow-green"
+        className="hp absolute top-[3%] right-[6%] w-[20%] flex justify-center items-center bg-green-500 bg-opacity-50 box-shadow-green"
         style={{ aspectRatio: 1 / 1 }}
       >
         <span

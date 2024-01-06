@@ -5,20 +5,12 @@ import Card, { CardProps } from "@/app/components/Card";
 import { useCombatState } from "@/app/state/CombatState";
 import { useEffect, useState } from "react";
 
-// const cardsData: string[] = [
-//   "cards/bearder.jpg",
-//   "cards/dwarf.jpg",
-//   "cards/girl-hakujin.jpg",
-//   "cards/girl.jpg",
-//   "cards/mermaid.jpg"
-// ]
-
 const cardsData: string[] = [
-  "characters/warrior-b.png",
-  "characters/archer-b.png",
-  "characters/warrior-b.png",
-  "characters/archer-b.png",
-  "characters/warrior-b.png",
+  "cards/card-1.jpg",
+  "cards/card-2.jpg",
+  "cards/card-3.jpg",
+  "cards/card-4.jpg",
+  "cards/card-5.jpg"
 ]
 
 // const actionCardsData: string[] = [
